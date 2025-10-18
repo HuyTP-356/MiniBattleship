@@ -20,34 +20,34 @@
 
 **3. Công nghệ sử dụng**
 
-Backend: C# với ASP.NET Core MVC (.NET 8)
+- Backend: C# với ASP.NET Core MVC (.NET 8)
 
-Frontend: HTML, CSS, và JavaScript 
+- Frontend: HTML, CSS, và JavaScript 
 
 **3. Kiến trúc:**
 
-Model-View-Controller (MVC): Phân tách rõ ràng giữa logic nghiệp vụ, dữ liệu và giao diện người dùng.
+- Model-View-Controller (MVC): Phân tách rõ ràng giữa logic nghiệp vụ, dữ liệu và giao diện người dùng.
 
-Singleton Service: GameService được đăng ký dưới dạng Singleton để duy trì trạng thái của ván game trong bộ nhớ (in-memory) xuyên suốt các request.
+- Singleton Service: GameService được đăng ký dưới dạng Singleton để duy trì trạng thái của ván game trong bộ nhớ (in-memory) xuyên suốt các request.
 
 **4. Cài đặt và Chạy dự án
 Yêu cầu**
 
-.NET 8 SDK hoặc phiên bản mới hơn.
+- .NET 8 SDK hoặc phiên bản mới hơn.
 
-Một trình soạn thảo code như Visual Studio 2022 hoặc Visual Studio Code.
+- Một trình soạn thảo code như Visual Studio 2022 hoặc Visual Studio Code.
 
 **5. Hướng dẫn chơi**
 
-Khi vào game, bàn cờ của bạn (bên trái) và các tàu chiến đã được đặt sẵn.
+- Khi vào game, bàn cờ của bạn (bên trái) và các tàu chiến đã được đặt sẵn.
 
-Click vào một ô bất kỳ trên Bàn cờ của BOT (bên phải) để thực hiện một lượt bắn.
+- Click vào một ô bất kỳ trên Bàn cờ của BOT (bên phải) để thực hiện một lượt bắn.
 
-Kết quả bắn (Trúng hoặc Trượt) sẽ được hiển thị ngay lập tức.
+- Kết quả bắn (Trúng hoặc Trượt) sẽ được hiển thị ngay lập tức.
 
-Sau lượt của bạn, BOT sẽ tự động thực hiện lượt bắn của nó vào bàn cờ của bạn.
+- Sau lượt của bạn, BOT sẽ tự động thực hiện lượt bắn của nó vào bàn cờ của bạn.
 
-Mục tiêu là đánh chìm hết 3 tàu của BOT trước khi nó đánh chìm hết tàu của bạn.
+- Mục tiêu là đánh chìm hết 3 tàu của BOT trước khi nó đánh chìm hết tàu của bạn.
 
-Khi một bên chiến thắng, một thông báo sẽ hiện ra. Nhấn nút "Chơi Lại" để bắt đầu một ván đấu mới.
+- Khi một bên chiến thắng, một thông báo sẽ hiện ra. Nhấn nút "Chơi Lại" để bắt đầu một ván đấu mới.
 
