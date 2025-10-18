@@ -26,10 +26,13 @@ namespace MiniBattleship.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken] // <-- THÊM DÒNG NÀY
         public IActionResult Shoot(int row, int col)
         {
+            // Logic xử lý lượt bắn của người chơi và sau đó là của bot
             _gameService.HandlePlayerShot(row, col);
-            // Trả về trạng thái game mới nhất dưới dạng JSON để cập nhật bằng JavaScript
+
+            // Trả về trạng thái game MỚI NHẤT sau khi cả người và bot đã chơi
             return Json(_gameService.GetGameState());
         }
     }

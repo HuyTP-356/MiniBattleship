@@ -9,14 +9,15 @@
         <h1>Mini Battleship</h1>
         @if (Model.IsGameOver)
         {
-            <div class="alert alert-success">@Model.WinnerMessage</div>
+            <div class="alert alert-success" id="game-status">@Model.WinnerMessage</div>
         }
         else
         {
-            <div class="alert alert-info">Lượt của: @Model.Players[Model.CurrentPlayerIndex].Name. Lượt bắn thứ: @Model.TurnCount</div>
+            <div class="alert alert-info" id="game-status">Lượt của: @Model.Players[Model.CurrentPlayerIndex].Name. Lượt bắn thứ: @Model.TurnCount</div>
         }
 
         <form asp-action="NewGame" method="post">
+            @Html.AntiForgeryToken()
             <button type="submit" class="btn btn-primary">Chơi Lại</button>
         </form>
     </div>
@@ -30,7 +31,8 @@
                 {
                     @for (int c = 0; c < MiniBattleship.Models.GameBoard.Size; c++)
                     {
-                        var cell = Model.Players[0].Board.Grid[r, c];
+                        // SỬA Ở ĐÂY: Dùng Grid[r][c] thay vì Grid[r, c]
+                        var cell = Model.Players[0].Board.Grid[r][c];
                         var cssClass = cell.ToString().ToLower();
                         <div class="cell @cssClass"></div>
                     }
@@ -46,8 +48,8 @@
                 {
                     @for (int c = 0; c < MiniBattleship.Models.GameBoard.Size; c++)
                     {
-                        var cell = Model.Players[1].Board.Grid[r, c];
-                        // Chỉ hiển thị Hit hoặc Miss, ẩn tàu của BOT
+                        // SỬA Ở ĐÂY: Dùng Grid[r][c] thay vì Grid[r, c]
+                        var cell = Model.Players[1].Board.Grid[r][c];
                         var displayState = (cell == MiniBattleship.Models.CellState.Ship || cell == MiniBattleship.Models.CellState.Empty) ? "unknown" : cell.ToString().ToLower();
                         <div class="cell @displayState" data-row="@r" data-col="@c"></div>
                     }

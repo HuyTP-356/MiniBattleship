@@ -6,7 +6,7 @@ namespace MiniBattleship.Services
     {
         private GameState _gameState;
         private readonly Random _random = new Random();
-        private static readonly int[] ShipSizes = { 3, 2, 2 }; // Kích thước 3 tàu
+        private static readonly int[] ShipSizes = { 3, 2, 2 };
 
         public GameService()
         {
@@ -40,7 +40,7 @@ namespace MiniBattleship.Services
                         {
                             int r = isHorizontal ? row : row + i;
                             int c = isHorizontal ? col + i : col;
-                            board.Grid[r, c] = CellState.Ship;
+                            board.Grid[r][c] = CellState.Ship; // SỬA Ở ĐÂY
                             ship.Coordinates.Add((r, c));
                         }
                         board.Ships.Add(ship);
@@ -57,9 +57,9 @@ namespace MiniBattleship.Services
                 int r = isHorizontal ? row : row + i;
                 int c = isHorizontal ? col + i : col;
 
-                if (r >= GameBoard.Size || c >= GameBoard.Size || board.Grid[r, c] != CellState.Empty)
+                if (r >= GameBoard.Size || c >= GameBoard.Size || board.Grid[r][c] != CellState.Empty) // SỬA Ở ĐÂY
                 {
-                    return false; // Ra ngoài bàn cờ hoặc chồng lấn
+                    return false;
                 }
             }
             return true;
@@ -69,26 +69,26 @@ namespace MiniBattleship.Services
         {
             if (_gameState.IsGameOver) return;
 
-            var opponent = _gameState.Players[1]; // Người chơi luôn bắn vào BOT
-            var cell = opponent.Board.Grid[row, col];
+            var opponent = _gameState.Players[1];
+            var cell = opponent.Board.Grid[row][col]; // SỬA Ở ĐÂY
 
-            if (cell == CellState.Hit || cell == CellState.Miss) return; // Ô này đã được bắn
+            if (cell == CellState.Hit || cell == CellState.Miss) return;
 
             if (cell == CellState.Ship)
             {
-                opponent.Board.Grid[row, col] = CellState.Hit;
+                opponent.Board.Grid[row][col] = CellState.Hit; // SỬA Ở ĐÂY
                 CheckForSunkShips(opponent);
             }
             else
             {
-                opponent.Board.Grid[row, col] = CellState.Miss;
+                opponent.Board.Grid[row][col] = CellState.Miss; // SỬA Ở ĐÂY
             }
 
             _gameState.TurnCount++;
             CheckForWinner();
             if (!_gameState.IsGameOver)
             {
-                _gameState.CurrentPlayerIndex = 1; // Lượt của BOT
+                _gameState.CurrentPlayerIndex = 1;
                 BotMakeMove();
             }
         }
@@ -97,14 +97,14 @@ namespace MiniBattleship.Services
         {
             if (_gameState.IsGameOver) return;
 
-            var opponent = _gameState.Players[0]; // BOT bắn vào người chơi
+            var opponent = _gameState.Players[0];
             var availableCells = new List<(int, int)>();
 
             for (int r = 0; r < GameBoard.Size; r++)
             {
                 for (int c = 0; c < GameBoard.Size; c++)
                 {
-                    if (opponent.Board.Grid[r, c] == CellState.Empty || opponent.Board.Grid[r, c] == CellState.Ship)
+                    if (opponent.Board.Grid[r][c] == CellState.Empty || opponent.Board.Grid[r][c] == CellState.Ship) // SỬA Ở ĐÂY
                     {
                         availableCells.Add((r, c));
                     }
@@ -114,23 +114,23 @@ namespace MiniBattleship.Services
             if (availableCells.Count > 0)
             {
                 var (row, col) = availableCells[_random.Next(availableCells.Count)];
-                var cell = opponent.Board.Grid[row, col];
+                var cell = opponent.Board.Grid[row][col]; // SỬA Ở ĐÂY
 
                 if (cell == CellState.Ship)
                 {
-                    opponent.Board.Grid[row, col] = CellState.Hit;
+                    opponent.Board.Grid[row][col] = CellState.Hit; // SỬA Ở ĐÂY
                     CheckForSunkShips(opponent);
                 }
                 else
                 {
-                    opponent.Board.Grid[row, col] = CellState.Miss;
+                    opponent.Board.Grid[row][col] = CellState.Miss; // SỬA Ở ĐÂY
                 }
             }
 
             CheckForWinner();
             if (!_gameState.IsGameOver)
             {
-                _gameState.CurrentPlayerIndex = 0; // Trả lượt lại cho người chơi
+                _gameState.CurrentPlayerIndex = 0;
             }
         }
 
@@ -140,7 +140,7 @@ namespace MiniBattleship.Services
             {
                 if (!ship.IsSunk)
                 {
-                    bool allHit = ship.Coordinates.All(coord => player.Board.Grid[coord.Row, coord.Col] == CellState.Hit);
+                    bool allHit = ship.Coordinates.All(coord => player.Board.Grid[coord.Row][coord.Col] == CellState.Hit); // SỬA Ở ĐÂY
                     if (allHit)
                     {
                         ship.IsSunk = true;
