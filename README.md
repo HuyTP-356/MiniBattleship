@@ -1,8 +1,8 @@
-**Mini Battleship - Game Tàu Chiến .NET MVC**
+**1. Mini Battleship - Game Tàu Chiến .NET MVC**
 
 Đây là một dự án game Tàu chiến (Battleship) đơn giản được xây dựng bằng ASP.NET Core MVC (.NET 8). Người chơi sẽ đối đầu với một máy tính (BOT) có trí tuệ nhân tạo (AI) cơ bản. Dự án này nhằm mục đích minh họa các khái niệm cốt lõi của .NET MVC, bao gồm Routing, Models, Views, Controllers, và cách quản lý trạng thái game bằng Singleton Service.
 
-**Tính năng chính**
+**2. Tính năng chính**
 
 Bàn cờ 7x7: Mỗi người chơi có một bàn cờ kích thước 7x7.
 
@@ -20,26 +20,26 @@ Thông báo trạng thái: Hiển thị rõ ràng lượt đi, số lượt đã
 
 Chơi lại: Dễ dàng bắt đầu một ván mới sau khi game kết thúc.
 
-**Công nghệ sử dụng**
+**3. Công nghệ sử dụng**
 
 Backend: C# với ASP.NET Core MVC (.NET 8)
 
-Frontend: HTML, CSS, và JavaScript (Vanilla JS)
+Frontend: HTML, CSS, và JavaScript 
 
-**Kiến trúc:**
+**3. Kiến trúc:**
 
 Model-View-Controller (MVC): Phân tách rõ ràng giữa logic nghiệp vụ, dữ liệu và giao diện người dùng.
 
 Singleton Service: GameService được đăng ký dưới dạng Singleton để duy trì trạng thái của ván game trong bộ nhớ (in-memory) xuyên suốt các request.
 
-**Cài đặt và Chạy dự án
+**4. Cài đặt và Chạy dự án
 Yêu cầu**
 
 .NET 8 SDK hoặc phiên bản mới hơn.
 
 Một trình soạn thảo code như Visual Studio 2022 hoặc Visual Studio Code.
 
-**Hướng dẫn chơi**
+**5. Hướng dẫn chơi**
 
 Khi vào game, bàn cờ của bạn (bên trái) và các tàu chiến đã được đặt sẵn.
 
