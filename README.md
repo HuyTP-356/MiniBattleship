@@ -51,3 +51,6 @@ Yêu cầu**
 
 - Khi một bên chiến thắng, một thông báo sẽ hiện ra. Nhấn nút "Chơi Lại" để bắt đầu một ván đấu mới.
 
+**6. Nguồn hỗ trợ & Tạo mã (AI Code Assistance)**
+- Google AI Studio / Gemini
+- Github Copilot
