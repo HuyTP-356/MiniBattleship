@@ -4,21 +4,19 @@
 
 **2. Tính năng chính**
 
-Bàn cờ 7x7: Mỗi người chơi có một bàn cờ kích thước 7x7.
+- Bàn cờ 7x7: Mỗi người chơi có một bàn cờ kích thước 7x7.
 
-3 Tàu mỗi bên: Mỗi bên được trang bị 3 tàu với kích thước cố định (1 tàu 3 ô, 2 tàu 2 ô).
+- 3 Tàu mỗi bên: Mỗi bên được trang bị 3 tàu với kích thước cố định (1 tàu 3 ô, 2 tàu 2 ô).
 
-Tự động đặt tàu: Tàu được tự động đặt ngẫu nhiên và hợp lệ (không chồng chéo) khi bắt đầu mỗi ván mới.
+- Tự động đặt tàu: Tàu được tự động đặt ngẫu nhiên và hợp lệ (không chồng chéo) khi bắt đầu mỗi ván mới.
 
-Chế độ chơi vs. BOT: Người chơi sẽ đấu với một AI.
+- Chế độ chơi vs. BOT: Người chơi sẽ đấu với một AI.
 
-BOT thông minh: BOT sử dụng chiến lược "Săn lùng & Tiêu diệt" (Hunt & Target), giúp nó bắn hiệu quả hơn sau khi đã bắn trúng một mục tiêu.
+- BOT thông minh: BOT sử dụng chiến lược "Săn lùng & Tiêu diệt" (Hunt & Target), giúp nó bắn hiệu quả hơn sau khi đã bắn trúng một mục tiêu.
 
-Giao diện đồ họa: Sử dụng hình ảnh cho các bộ phận tàu, hiệu ứng bắn trúng (Hit) và bắn trượt (Miss) thay vì chỉ dùng màu sắc.
+- Thông báo trạng thái: Hiển thị rõ ràng lượt đi, số lượt đã bắn, và thông báo người chiến thắng.
 
-Thông báo trạng thái: Hiển thị rõ ràng lượt đi, số lượt đã bắn, và thông báo người chiến thắng.
-
-Chơi lại: Dễ dàng bắt đầu một ván mới sau khi game kết thúc.
+- Chơi lại: Dễ dàng bắt đầu một ván mới sau khi game kết thúc.
 
 **3. Công nghệ sử dụng**
 
