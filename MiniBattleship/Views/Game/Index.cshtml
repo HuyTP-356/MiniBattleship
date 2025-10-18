@@ -1,0 +1,58 @@
+﻿@model MiniBattleship.Models.GameState
+
+@{
+    ViewData["Title"] = "Mini Battleship";
+}
+
+<div class="game-container">
+    <div class="game-header">
+        <h1>Mini Battleship</h1>
+        @if (Model.IsGameOver)
+        {
+            <div class="alert alert-success">@Model.WinnerMessage</div>
+        }
+        else
+        {
+            <div class="alert alert-info">Lượt của: @Model.Players[Model.CurrentPlayerIndex].Name. Lượt bắn thứ: @Model.TurnCount</div>
+        }
+
+        <form asp-action="NewGame" method="post">
+            <button type="submit" class="btn btn-primary">Chơi Lại</button>
+        </form>
+    </div>
+
+    <div class="boards-container">
+        <!-- Bàn cờ người chơi -->
+        <div class="board-area">
+            <h2>Bàn cờ của bạn</h2>
+            <div class="grid-container" id="player-board">
+                @for (int r = 0; r < MiniBattleship.Models.GameBoard.Size; r++)
+                {
+                    @for (int c = 0; c < MiniBattleship.Models.GameBoard.Size; c++)
+                    {
+                        var cell = Model.Players[0].Board.Grid[r, c];
+                        var cssClass = cell.ToString().ToLower();
+                        <div class="cell @cssClass"></div>
+                    }
+                }
+            </div>
+        </div>
+
+        <!-- Bàn cờ của BOT -->
+        <div class="board-area">
+            <h2>Bàn cờ của BOT</h2>
+            <div class="grid-container" id="bot-board">
+                @for (int r = 0; r < MiniBattleship.Models.GameBoard.Size; r++)
+                {
+                    @for (int c = 0; c < MiniBattleship.Models.GameBoard.Size; c++)
+                    {
+                        var cell = Model.Players[1].Board.Grid[r, c];
+                        // Chỉ hiển thị Hit hoặc Miss, ẩn tàu của BOT
+                        var displayState = (cell == MiniBattleship.Models.CellState.Ship || cell == MiniBattleship.Models.CellState.Empty) ? "unknown" : cell.ToString().ToLower();
+                        <div class="cell @displayState" data-row="@r" data-col="@c"></div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
